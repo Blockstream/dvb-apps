@@ -25,6 +25,6 @@ $(binaries): $(objects)
 $(objects): atsc_psip_section.c atsc_psip_section.h
 
 atsc_psip_section.c atsc_psip_section.h:
-	perl section_generate.pl atsc_psip_section.pl
+	perl section_generate.pl ./atsc_psip_section.pl
 
 include ../../Make.rules
