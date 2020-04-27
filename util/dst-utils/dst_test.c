@@ -111,16 +111,6 @@ static int dst_reset(int cafd)
 	return 0;
 }
 
-static int dst_set_pid(int cafd)
-{
-	if ((ioctl(cafd, CA_SET_PID)) < 0) {
-		printf("%s: ioctl failed ..\n", __FUNCTION__);
-		return -1;
-	}
-
-	return 0;
-}
-
 static int dst_get_descr(int cafd)
 {
 	if ((ioctl(cafd, CA_GET_DESCR_INFO)) < 0) {
@@ -191,7 +181,6 @@ int main(int argc, char *argv[])
 				"\t -c capabilities\n"
 				"\t -i info\n"
 				"\t -r reset\n"
-				"\t -p pid\n"
 				"\t -g get descr\n"
 				"\t -s set_descr\n"
 				"\t -a app_info\n"
@@ -228,10 +217,6 @@ int main(int argc, char *argv[])
 			case 'r':
 				printf("%s: Reset\n", __FUNCTION__);
 				dst_reset(cafd);
-				break;
-			case 'p':
-				printf("%s: PID\n", __FUNCTION__);
-				dst_set_pid(cafd);
 				break;
 			case 'g':
 				printf("%s: Get Desc\n", __FUNCTION__);

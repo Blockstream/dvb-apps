@@ -73,11 +73,6 @@ typedef struct ca_descr {
 	unsigned char cw[8];
 } ca_descr_t;
 
-typedef struct ca_pid {
-	unsigned int pid;
-	int index;		/* -1 == disable*/
-} ca_pid_t;
-
 #define CA_RESET          _IO('o', 128)
 #define CA_GET_CAP        _IOR('o', 129, ca_caps_t)
 #define CA_GET_SLOT_INFO  _IOR('o', 130, ca_slot_info_t)
@@ -85,6 +80,5 @@ typedef struct ca_pid {
 #define CA_GET_MSG        _IOR('o', 132, ca_msg_t)
 #define CA_SEND_MSG       _IOW('o', 133, ca_msg_t)
 #define CA_SET_DESCR      _IOW('o', 134, ca_descr_t)
-#define CA_SET_PID        _IOW('o', 135, ca_pid_t)
 
 #endif
