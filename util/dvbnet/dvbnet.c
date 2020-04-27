@@ -178,8 +178,8 @@ void parse_args(int argc, char **argv)
 			exit(OK);
 		case 'h':
 		default:
-			s = strrchr(argv[0], '/') + 1;
-			usage((s) ? s : argv[0]);
+			s = strrchr(argv[0], '/');
+			usage((s) ? (s + 1) : argv[0]);
 			exit(FAIL);
 		}
 	}
