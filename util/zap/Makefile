@@ -3,7 +3,7 @@
 objects  = zap_ca.o  \
            zap_dvb.o
 
-binaries = zap
+binaries = dvbzap
 
 inst_bin = $(binaries)
 

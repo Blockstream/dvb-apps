@@ -5,10 +5,10 @@ objects  = atsc_psip_section.o \
            dump-vdr.o          \
            dump-zap.o          \
            lnb.o               \
-           scan.o              \
+           scandvb.o              \
            section.o
 
-binaries = scan
+binaries = scandvb
 
 inst_bin = $(binaries)
 
