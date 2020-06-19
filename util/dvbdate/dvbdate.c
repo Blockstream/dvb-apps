@@ -309,7 +309,13 @@ int atsc_scan_date(time_t *rx_time, unsigned int to)
  */
 int set_time(time_t * new_time)
 {
+#if defined(__GNU_LIBRARY__) && (__GLIBC__ >= 2) && (__GLIBC_MINOR__ > 30)
+	struct timespec ts = {};
+	ts.tv_sec = *new_time;
+	if (clock_settime(CLOCK_REALTIME, &ts) != 0){
+#else
 	if (stime(new_time)) {
+#endif
 		perror("Unable to set time");
 		return -1;
 	}
